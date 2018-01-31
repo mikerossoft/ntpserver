@@ -272,7 +272,7 @@ class WorkThread(threading.Thread):
                 recvPacket = NTPPacket()
                 recvPacket.from_data(data)
                 timeStamp_high,timeStamp_low = recvPacket.GetTxTimeStamp()
-                sendPacket = NTPPacket(version=3,mode=4)
+                sendPacket = NTPPacket(version=recvPacket.version,mode=4)
                 sendPacket.stratum = 2
                 sendPacket.poll = 10
                 '''
